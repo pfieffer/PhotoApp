@@ -16,7 +16,7 @@ class PhotoRetriever {
         service = retrofit.create(PhotoAPI::class.java)
     }
 
-    fun getPhotos(callback: Callback<PhotoList>){
+    fun getPhotos(callback: Callback<PhotoList>) {
         val call = service.getPhotos()
         call.enqueue(callback)
     }
