@@ -1,5 +1,6 @@
 package com.example.photoapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -54,5 +55,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(view: View?) {
         //onClick Method for mainAdapter
+        val intent = Intent(this, DetailActivity::class.java)
+        val photoViewHolder = view?.tag as MainAdapter.PhotoViewHolder
+        intent.putExtra(DetailActivity.PHOTO,
+            mainAdapter?.getPhoto(photoViewHolder.adapterPosition))
+
+        startActivity(intent)
     }
 }

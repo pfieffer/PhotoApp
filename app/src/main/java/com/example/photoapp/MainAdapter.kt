@@ -25,7 +25,7 @@ class MainAdapter(var photos: List<Photo>, var clickListener: View.OnClickListen
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainAdapter.PhotoViewHolder {
-        return PhotoViewHolder(LayoutInflater.from(parent?.context).inflate(R.layout.item_photo, parent, false))
+        return PhotoViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_photo, parent, false))
     }
 
     override fun getItemCount(): Int {
@@ -43,9 +43,7 @@ class MainAdapter(var photos: List<Photo>, var clickListener: View.OnClickListen
         var photo_item: ImageView
 
         init {
-            if (clickListener != null) {
-                itemView.setOnClickListener(clickListener)
-            }
+            itemView.setOnClickListener(clickListener)
             itemView.tag = this
             tags = itemView.findViewById(R.id.tags) as TextView
             likes = itemView.findViewById(R.id.likes) as TextView
