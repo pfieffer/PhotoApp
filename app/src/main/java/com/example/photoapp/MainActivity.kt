@@ -57,8 +57,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         //onClick Method for mainAdapter
         val intent = Intent(this, DetailActivity::class.java)
         val photoViewHolder = view?.tag as MainAdapter.PhotoViewHolder
-        intent.putExtra(DetailActivity.PHOTO,
-            mainAdapter?.getPhoto(photoViewHolder.adapterPosition))
+        intent.putExtra(
+            DetailActivity.PHOTO,
+            mainAdapter?.getPhoto(photoViewHolder.adapterPosition)
+        )
 
         startActivity(intent)
     }

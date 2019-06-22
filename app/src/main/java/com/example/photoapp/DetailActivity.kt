@@ -26,7 +26,7 @@ class DetailActivity : AppCompatActivity() {
         }
     }
 
-    companion object{
+    companion object {
         val PHOTO = "PHOTO"
     }
 }
