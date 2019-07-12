@@ -1,4 +1,4 @@
-package com.example.photoapp
+package com.example.photoapp.view
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.photoapp.R
 import com.example.photoapp.model.Photo
 
 class MainAdapter(var photos: List<Photo>, var clickListener: View.OnClickListener) :
@@ -24,7 +25,7 @@ class MainAdapter(var photos: List<Photo>, var clickListener: View.OnClickListen
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainAdapter.PhotoViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PhotoViewHolder {
         return PhotoViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_photo, parent, false))
     }
 

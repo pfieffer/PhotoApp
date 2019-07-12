@@ -1,4 +1,4 @@
-package com.example.photoapp
+package com.example.photoapp.view
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.photoapp.R
 import com.example.photoapp.api.PhotoRetriever
 import com.example.photoapp.model.Photo
 import com.example.photoapp.model.PhotoList
