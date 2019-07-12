@@ -21,7 +21,7 @@ class MainAdapter(var photos: List<Photo>, var clickListener: View.OnClickListen
         if (photo.previewURL.isNotEmpty()) {
             Glide.with(photoViewHodler.tags.context)
                 .load(photo.previewURL)
-                .into(photoViewHodler.photo_item)
+                .into(photoViewHodler.photoItem)
         }
     }
 
@@ -41,7 +41,7 @@ class MainAdapter(var photos: List<Photo>, var clickListener: View.OnClickListen
         var tags: TextView
         var likes: TextView
         var favorites: TextView
-        var photo_item: ImageView
+        var photoItem: ImageView
 
         init {
             itemView.setOnClickListener(clickListener)
@@ -49,7 +49,11 @@ class MainAdapter(var photos: List<Photo>, var clickListener: View.OnClickListen
             tags = itemView.findViewById(R.id.tags) as TextView
             likes = itemView.findViewById(R.id.likes) as TextView
             favorites = itemView.findViewById(R.id.favorites) as TextView
-            photo_item = itemView.findViewById(R.id.photo_item) as ImageView
+            photoItem = itemView.findViewById(R.id.photo_item) as ImageView
         }
+    }
+
+    fun loadItems(photoItems: List<Photo>) {
+        photos = photoItems
     }
 }

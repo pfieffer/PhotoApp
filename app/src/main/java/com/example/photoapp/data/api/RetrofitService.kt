@@ -1,23 +1,29 @@
 package com.example.photoapp.data.api
 
-import com.example.photoapp.model.PhotoList
-import retrofit2.Callback
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class PhotoRetriever {
-    private val service: PhotoAPI
+
+object RetrofitService {
+
+    var loggingInterceptor = HttpLoggingInterceptor()
+    val httpClient = OkHttpClient.Builder()
 
     init {
-        val retrofit = Retrofit.Builder()
-            .baseUrl("https://pixabay.com/api/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-        service = retrofit.create(PhotoAPI::class.java)
+        loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
+        // add loggingInterceptor as last interceptor, Add other interceptors before it
+        httpClient.addInterceptor(loggingInterceptor)
     }
 
-    fun getPhotos(callback: Callback<PhotoList>) {
-        val call = service.getPhotos()
-        call.enqueue(callback)
+    private val retrofit = Retrofit.Builder()
+        .baseUrl("https://pixabay.com/api/")
+        .addConverterFactory(GsonConverterFactory.create())
+        .client(httpClient.build())
+        .build()
+
+    fun <S> createService(serviceClass: Class<S>): S {
+        return retrofit.create(serviceClass)
     }
 }

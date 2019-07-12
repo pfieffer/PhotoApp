@@ -1,8 +1,8 @@
 package com.example.photoapp.view
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
+import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.example.photoapp.R
 import com.example.photoapp.model.Photo

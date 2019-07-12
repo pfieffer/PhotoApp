@@ -1,4 +1,4 @@
-package com.example.photoapp.api
+package com.example.photoapp.data.api
 
 
 import com.example.photoapp.model.PhotoList
