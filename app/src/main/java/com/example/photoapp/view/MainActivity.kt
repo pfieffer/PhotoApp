@@ -3,30 +3,26 @@ package com.example.photoapp.view
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.photoapp.R
 import com.example.photoapp.model.Photo
 import com.example.photoapp.viewModel.PhotosViewModel
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private var photos: List<Photo> = ArrayList()
 
     private var mainAdapter: MainAdapter? = null
-    private lateinit var recyclerView: RecyclerView //allows for us to initialize the variable "later down the road"
-    private lateinit var noPhotosTV: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         setUpRecyclerView()
-        noPhotosTV = findViewById(R.id.tv_no_photos)
 
         val photosViewModel = ViewModelProviders.of(this).get(PhotosViewModel::class.java)
 
@@ -34,7 +30,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             //            for ( photo in it.hits)
 //                Log.d("MainActivity", photo.previewURL)
             if (it == null) {
-                noPhotosTV.visibility = View.VISIBLE
+                tv_no_photos.visibility = View.VISIBLE
                 return@Observer
             }
             mainAdapter?.loadItems(it.hits)
@@ -44,11 +40,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun setUpRecyclerView() {
-        recyclerView = findViewById(R.id.recyclerView)//this is "later down the road"
-        recyclerView.layoutManager = LinearLayoutManager(this)
+        recycler_view.layoutManager = LinearLayoutManager(this)
 
         mainAdapter = MainAdapter(this@MainActivity.photos, this@MainActivity)
-        recyclerView.adapter = mainAdapter
+        recycler_view.adapter = mainAdapter
     }
 
     override fun onClick(view: View?) {
