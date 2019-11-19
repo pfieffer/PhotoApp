@@ -14,3 +14,7 @@
 #### Setup:
 1. Clone this repository: `git clone https://github.com/pfieffer/PhotoApp.git`
 2. Open on Android Studio (Build and Run)
+
+#### Demo:
+
+[DEMO GIF](demo/demo.gif?raw=true)
