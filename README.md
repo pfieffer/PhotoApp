@@ -17,4 +17,4 @@
 
 #### Demo:
 
-[DEMO GIF](demo/demo.gif?raw=true)
+![Demo GIF](demo/demo.gif?raw=true)
